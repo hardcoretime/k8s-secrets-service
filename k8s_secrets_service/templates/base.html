@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% block title %}
+  <title>Base</title>
+  {% endblock %}
+</head>
+{% block navbar %}
+<div style="background-color: #79aec8; margin-top: 1rem; margin-bottom: 1rem">
+  <a href="{% url 'main' %}">Main</a>
+</div>
+{% endblock %}
+
+{% block body %}
+<body>
+
+</body>
+{% endblock %}
+
+{% block footer %}
+<footer style="background-color: #79aec8; margin-top: 1rem; margin-bottom: 1rem">
+  <a href="mailto:feedback@k8s-secrets-service.mars">
+    Feedback: feedback@k8s-secrets-service.mars
+  </a>
+</footer>
+{% endblock %}
+</html>
