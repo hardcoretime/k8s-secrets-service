@@ -1,4 +1,5 @@
 # k8s-secrets-service
+Service for secrets management in a kubernetes cluster without direct access to it.
 
 ## install
 ### linux(debian)
@@ -30,7 +31,6 @@ minikube start
 
 #### migrations
 ```shell
-python k8s_secrets_service/manage.py makemigrations
 python k8s_secrets_service/manage.py migrate
 ```
 
@@ -68,7 +68,7 @@ kubeclt port-forward -n development ${POD_NAME} 8000:8000
 [Admin page](http://0.0.0.0:8000/admin/)
 
 
-#### create demo-secret
+#### create demo-secret(don't forget login with superuser or user which you created before)
 [Create kubernetes secret](http://0.0.0.0:8000/create-secret/)
 - secret name: demo-secret
 - secret key: demo-key
