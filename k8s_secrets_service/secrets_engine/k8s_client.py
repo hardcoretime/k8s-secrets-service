@@ -1,6 +1,7 @@
 import base64
 
 from kubernetes import config, client
+from kubernetes.client import V1SecretList
 
 
 class K8sClient:
@@ -21,3 +22,6 @@ class K8sClient:
 
         body = client.V1Secret(api_version=api_version, data=data, kind=kind, metadata=metadata)
         self.api.create_namespaced_secret(namespace, body)
+
+    def list_secrets(self, namespace: str) -> V1SecretList:
+        return self.api.list_namespaced_secret(namespace)

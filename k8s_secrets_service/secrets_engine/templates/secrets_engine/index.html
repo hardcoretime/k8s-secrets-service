@@ -7,6 +7,7 @@
 {% block body %}
 <body>
 <h1>Welcome to k8s-secrets-service!</h1>
-<a href="{% url 'create-secret' %}">Create kubernetes secret</a>
+<div><h3><a href="{% url 'create-secret' %}">Create kubernetes secret</a></h3></div>
+<div><h3><a href="{% url 'list-secrets' %}">Get secrets from namespace</a><h3></div>
 </body>
 {% endblock %}

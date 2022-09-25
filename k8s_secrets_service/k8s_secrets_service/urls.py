@@ -21,7 +21,7 @@ import secrets_engine.views
 urlpatterns = [
     path('', secrets_engine.views.index, name='main'),
     path('create-secret/', secrets_engine.views.create_secret, name='create-secret'),
+    path('list-secrets/', secrets_engine.views.list_secrets, name='list-secrets'),
     path('accounts/', include('django.contrib.auth.urls')),
-    # path('login/', secrets_engine.views.login, name='login'),
     path('admin/', admin.site.urls),
 ]
