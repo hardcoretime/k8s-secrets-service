@@ -62,10 +62,11 @@ kubeclt port-forward -n development ${POD_NAME} 8000:8000
 ```
 
 ## Usage
+[Main page](http://0.0.0.0:8000/index/)
+
 #### create developer account by superuser(also you can use superuser to create a kubernetes secret)
-```shell
-0.0.0.0:8000/admin
-```
+[Admin page](http://0.0.0.0:8000/admin/)
+
 
 #### create demo-secret
 [Create kubernetes secret](http://0.0.0.0:8000/create-secret/)
@@ -82,5 +83,5 @@ kubectl apply kubernetes/demo-deployment
 #### check demo-secret value in the demo-pod env(output must be "DEMO_SECRET=demo-value")
 ```shell
 DEMO_POD_NAME=$(kubectl get pod -n development -l app=demo-deployment -o name)
-kubectl exec -it -n development ${DEMO_POD_NAME} -- env | grep DEMO_SECRET
+kubectl exec -n development ${DEMO_POD_NAME} -- env | grep DEMO_SECRET
 ```
