@@ -1,14 +1,14 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: secret-service
+  name: k8s-secrets-service
   namespace: development
 subjects:
 - kind: ServiceAccount
-  name: secret-service
+  name: k8s-secrets-service
   namespace: development
   apiGroup: ""
 roleRef:
   kind: Role
-  name: secret-service
+  name: k8s-secrets-service
   apiGroup: ""

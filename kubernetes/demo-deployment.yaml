@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: k8s-secrets-service
-  name: k8s-secrets-service
+    app: demo-deployment
+  name: demo-deployment
   namespace: development
 spec:
   progressDeadlineSeconds: 600
@@ -11,7 +11,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: k8s-secrets-service
+      app: demo-deployment
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -20,24 +20,25 @@ spec:
   template:
     metadata:
       labels:
-        app: k8s-secrets-service
+        app: demo-deployment
     spec:
       containers:
-      - image: k8s-secrets-service:latest
-        env:
-          - name: SECRET_KEY
-            valueFrom:
-              secretKeyRef:
-                name: k8s-secrets-service
-                key: SECRET_KEY
-        imagePullPolicy: Never
-        name: k8s-secrets-service
+      - image: bash:latest
+        command: ["sleep"]
+        args: ["600"]
+        imagePullPolicy: IfNotPresent
+        name: demo-deployment
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        env:
+          - name: DEMO_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: demo-secret
+                key: demo-key
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      serviceAccountName: k8s-secrets-service
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
