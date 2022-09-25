@@ -62,7 +62,7 @@ kubeclt port-forward -n development ${POD_NAME} 8000:8000
 ```
 
 ## Usage
-[Main page](http://0.0.0.0:8000/index/)
+[Main page](http://0.0.0.0:8000/)
 
 #### create developer account by superuser(also you can use superuser to create a kubernetes secret)
 [Admin page](http://0.0.0.0:8000/admin/)
