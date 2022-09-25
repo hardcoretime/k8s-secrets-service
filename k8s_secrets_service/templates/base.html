@@ -8,11 +8,11 @@
 </head>
 {% block navbar %}
 <div style="background-color: #79aec8; margin-top: 1rem; margin-bottom: 1rem">
-  <h4><a href="{% url 'main' %}">Main</a></h4>
+  <a href="{% url 'main' %}">Main</a>
   {% if request.user.is_authenticated %}
-  <h4><a href="{% url 'logout' %}">Logout</a></h4>
+  <a href="{% url 'logout' %}">Logout</a>
   {% else %}
-  <h4><a href="{% url 'login' %}">Login</a></h4>
+  <a href="{% url 'login' %}">Login</a>
   {% endif %}
 </div>
 {% endblock %}
