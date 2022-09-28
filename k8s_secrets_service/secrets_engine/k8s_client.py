@@ -6,7 +6,6 @@ from kubernetes.client import V1SecretList
 
 class K8sClient:
     def __init__(self):
-        # config.load_kube_config('/home/rsysoev/.kube/config')
         config.load_incluster_config()
         self.api = client.CoreV1Api()
 
